@@ -24,6 +24,7 @@ public class HealthManager : MonoBehaviour
 
     public float damageModifier;
 
+    public AudioSource audioSource;
     public AudioClip sheildHit;
     public AudioClip healthHit;
     public AudioClip sheildBreak;
@@ -31,6 +32,7 @@ public class HealthManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponentInChildren<AudioSource>();
         currentHealth = maxHealth;
         currentBlock = 0;
         unit = gameObject;
@@ -63,7 +65,8 @@ public class HealthManager : MonoBehaviour
         {
             if (currentBlock == 0)
             {
-                //play health hit sfx
+                audioSource.clip = healthHit;
+                audioSource.Play();
             }
             else
             {

@@ -30,6 +30,7 @@ public class PlayerManager : MonoBehaviour
 
     public static float damageMultiplier;
 
+    public AudioSource audioSource;
     public AudioClip sheildHit;
     public AudioClip healthHit;
     public AudioClip sheildBreak;
@@ -39,6 +40,7 @@ public class PlayerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponentInChildren<AudioSource>();
         playerEffectList = GameObject.Find("PlayerEffectList");
         playerCurrentHealth = playerMaxHealth;
         playerCurrentBlock = 0;
