@@ -29,6 +29,8 @@ public class PlayerDeck : MonoBehaviour
     public TextMeshProUGUI cardsLeftInDeckText;
     public TextMeshProUGUI cardsDiscardedText;
     public TextMeshProUGUI cardsBanisedText;
+
+    public AudioSource cardShuffle;
     
     private void OnEnable()
     {
@@ -55,6 +57,7 @@ public class PlayerDeck : MonoBehaviour
 
     public void Shuffle()
     {
+        cardShuffle.Play();
         for (int i = 0; i < deckSize; i++)
         {
             container[0] = deck[i];
@@ -66,6 +69,7 @@ public class PlayerDeck : MonoBehaviour
 
     public void ShuffleDiscardInto()
     {
+        cardShuffle.Play();
         for (int i = 0; i < discardSize; i++)
         {
             deck.Add(discardList[0]);
