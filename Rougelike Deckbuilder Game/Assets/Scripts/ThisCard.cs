@@ -29,6 +29,8 @@ public class ThisCard : MonoBehaviour
     public int postPotency;
     public string data;
 
+    public AudioClip attackSound;
+
     public static int drawX;
     public int drawXCards;
     public bool xEffectCard;
@@ -145,6 +147,7 @@ public class ThisCard : MonoBehaviour
         data = "" + (int)(damage * PlayerManager.damageMultiplier + 0.5f);
 
         thisSprite = thisCard[0].thisImage;
+        attackSound = thisCard[0].attackSound;
 
         cardUpdatedDescription = string.Format(cardDescription, data);
         nameText.text = "" + cardName;
@@ -217,6 +220,7 @@ public class ThisCard : MonoBehaviour
                     for (int i = 0; i < hits; i++)
                     {
                         targetHealthManager.UnitDamaged((int)(damage * PlayerManager.damageMultiplier + 0.5f));
+                        // play hit sound
                         StartCoroutine(SingleHitAnimation(target));
                         yield return new WaitForSeconds(0.4f);
                     }
@@ -230,6 +234,7 @@ public class ThisCard : MonoBehaviour
                     applyEffect.ActivateEffect(target, priorEffect, priorPotency);
                     for (int i = 0; i < hits; i++)
                     {
+                        // play hit sound
                         StartCoroutine(AllHitAnimation());
                         foreach (GameObject enemy in enemies)
                         {
@@ -248,6 +253,7 @@ public class ThisCard : MonoBehaviour
                 if (cardTargetingType == "Self")
                 {
                     applyEffect.ActivateEffect(player, priorEffect, priorPotency);
+                    // play hit sound
                     playerManager.PlayerBlocks(block);
                     playerManager.PlayerDamaged(damage, null);
                     applyEffect.ActivateEffect(player, postEffect, postPotency);
@@ -255,6 +261,7 @@ public class ThisCard : MonoBehaviour
                 if (cardTargetingType == "Single")
                 {
                     applyEffect.ActivateEffect(target, priorEffect, priorPotency);
+                    // play hit sound
                     playerManager.PlayerBlocks(block);
                     playerManager.PlayerDamaged(damage, null);
                     applyEffect.ActivateEffect(target, postEffect, postPotency);
@@ -268,6 +275,7 @@ public class ThisCard : MonoBehaviour
                     {
                         HealthManager healthManager = enemy.GetComponent<HealthManager>();
                         applyEffect.ActivateEffect(enemy, postEffect, postPotency);
+                        // play hit sound
                     }
                     playerManager.PlayerBlocks(block);
                     playerManager.PlayerDamaged(damage, null);
@@ -276,6 +284,7 @@ public class ThisCard : MonoBehaviour
             else if (cardType == "Power")
             {
                 applyEffect.ActivateEffect(player, priorEffect, priorPotency);
+                // play hit sound
                 applyEffect.ActivateEffect(player, postEffect, postPotency);
             }
             else if (cardType == "Curse")
@@ -285,6 +294,7 @@ public class ThisCard : MonoBehaviour
                     applyEffect.ActivateEffect(player, priorEffect, priorPotency);
                     playerManager.PlayerBlocks(block);
                     playerManager.PlayerDamaged(damage, null);
+                    // play hit sound
                 }
                 if (cardTargetingType == "Single")
                 {
@@ -292,6 +302,7 @@ public class ThisCard : MonoBehaviour
                     playerManager.PlayerBlocks(block);
                     playerManager.PlayerDamaged(damage, null);
                     applyEffect.ActivateEffect(target, postEffect, postPotency);
+                    // play hit sound
                 }
                 if (cardTargetingType == "All")
                 {
@@ -302,6 +313,7 @@ public class ThisCard : MonoBehaviour
                     {
                         HealthManager healthManager = enemy.GetComponent<HealthManager>();
                         applyEffect.ActivateEffect(enemy, postEffect, postPotency);
+                        // play hit sound
                     }
                     playerManager.PlayerBlocks(block);
                     playerManager.PlayerDamaged(damage, null);

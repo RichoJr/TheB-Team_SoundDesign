@@ -16,8 +16,9 @@ public class EnemyAction
     public int debuffpotency;
 
     public Sprite thisImage;
+    public AudioClip attackSound;
 
-    public EnemyAction(int Id, string ActionName, int Damage, int Block, int Hits, int BuffEffect, int BuffPotency, int DebuffEffect, int DebuffPotency, Sprite ThisImage)
+    public EnemyAction(int Id, string ActionName, int Damage, int Block, int Hits, int BuffEffect, int BuffPotency, int DebuffEffect, int DebuffPotency, Sprite ThisImage, AudioClip AttackSound)
     {
         id = Id;
         actionName = ActionName;
@@ -29,5 +30,6 @@ public class EnemyAction
         hits = Hits;
         buffpotency = BuffPotency;
         debuffpotency = DebuffPotency;
+        attackSound = AttackSound;
     }
 }

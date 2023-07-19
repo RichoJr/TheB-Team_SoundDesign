@@ -23,8 +23,9 @@ public class Card
     public bool exhaust;
 
     public Sprite thisImage;
+    public AudioClip attackSound;
 
-    public Card(int Id, string CardName, int Cost, int Damage, int Hits, int Block, string CardDescripion, string CardType, Sprite ThisImage, string CardTargetingType, int PriorEffect, int PostEffect, int PriorPotency, int PostPotency, bool Exhaust, bool Ethereal)
+    public Card(int Id, string CardName, int Cost, int Damage, int Hits, int Block, string CardDescripion, string CardType, Sprite ThisImage, string CardTargetingType, int PriorEffect, int PostEffect, int PriorPotency, int PostPotency, bool Exhaust, bool Ethereal, AudioClip AttackSound)
     {
         id = Id;
         cardName = CardName;
@@ -42,6 +43,7 @@ public class Card
         postPotency = PostPotency;
         exhaust = Exhaust;
         ethereal = Ethereal;
+        attackSound = AttackSound;
     }
 
 }

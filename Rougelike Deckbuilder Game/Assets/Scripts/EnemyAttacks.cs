@@ -35,6 +35,8 @@ public class EnemyAttacks : MonoBehaviour
     public Sprite thisSprite;
     public Image thatImage;
 
+    public AudioClip attackSound;
+
     public GameObject enemy;
     public GameObject player;
     public Animator enemyAnimator;
@@ -85,6 +87,7 @@ public class EnemyAttacks : MonoBehaviour
         debuffPotency = thisEnemyActions[enemyId].debuffpotency;
 
         thisSprite = thisEnemyActions[enemyId].thisImage;
+        attackSound = thisEnemyActions[enemyId].attackSound;
 
         attackNameText.text = "" + actionName;
         int actualDamage = (int)(damage * healthManager.damageModifier + 0.5f);
@@ -148,6 +151,7 @@ public class EnemyAttacks : MonoBehaviour
             enemyAnimator.SetTrigger("Enemy Buff");
             yield return new WaitForSeconds(0.45f);
             healthManager.BlockGained(block);
+            // sound effect
             applyEffect.ActivateEffect(enemy, buffEffect, buffPotency);
             thatImage.gameObject.SetActive(false);
             yield return new WaitForSeconds(0.59f);
@@ -158,6 +162,7 @@ public class EnemyAttacks : MonoBehaviour
             enemyAnimator.SetTrigger("Enemy attack");
             yield return new WaitForSeconds(0.4f);
             playerManager.PlayerDamaged((int)(damage * healthManager.damageModifier + 0.5f), enemy);
+            // sound effect
             StartCoroutine(HitAnimation());
             if (hits > 1)
             {
@@ -168,6 +173,7 @@ public class EnemyAttacks : MonoBehaviour
                     enemyAnimator.SetTrigger("Extra Hit");
                     yield return new WaitForSeconds(0.15f);
                     StartCoroutine(HitAnimation());
+                    // sound effect
                     playerManager.PlayerDamaged((int)(damage * healthManager.damageModifier + 0.5f), enemy);
                 }
             }
