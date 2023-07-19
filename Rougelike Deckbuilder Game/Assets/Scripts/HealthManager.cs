@@ -24,6 +24,10 @@ public class HealthManager : MonoBehaviour
 
     public float damageModifier;
 
+    public AudioClip sheildHit;
+    public AudioClip healthHit;
+    public AudioClip sheildBreak;
+    public AudioClip deathSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -57,7 +61,15 @@ public class HealthManager : MonoBehaviour
         float excessDamage = damage - currentBlock;
         if (excessDamage > 0)
         {
-            currentBlock = 0; 
+            if (currentBlock == 0)
+            {
+                //play health hit sfx
+            }
+            else
+            {
+                //play block broken hit sfx
+            }
+            currentBlock = 0;
             currentHealth -= excessDamage;
             float hpPercentage = currentHealth / maxHealth;
             healthUi.UpdateHealth(hpPercentage, currentHealth, maxHealth);
@@ -74,6 +86,7 @@ public class HealthManager : MonoBehaviour
                 unit.SetActive(false);
                 if (EnemyKilled != null)
                 {
+                    //play death sfx
                     Debug.Log("Enemy Killed");
                     enemyAlive = false;
                     EnemyKilled();
@@ -84,6 +97,7 @@ public class HealthManager : MonoBehaviour
         else
         {
             currentBlock -= damage;
+            //play blocked hit sfx
             healthUi.UpdateBlock(currentBlock);
         }
 
@@ -107,7 +121,7 @@ public class HealthManager : MonoBehaviour
         {
             poisonHealth.SetActive(true);
             poisonFill.transform.position = fill.transform.position;
-            poisonFill.GetComponent<RectTransform>().anchorMax = new Vector2 (fill.GetComponent<RectTransform>().anchorMax.x, 1f);
+            poisonFill.GetComponent<RectTransform>().anchorMax = new Vector2(fill.GetComponent<RectTransform>().anchorMax.x, 1f);
             int poisonStacks = poisonDebuff.stacks;
             float poisonPercentage = poisonStacks / currentHealth;
             //float poisonPercentage = poisonStacks / maxHealth;

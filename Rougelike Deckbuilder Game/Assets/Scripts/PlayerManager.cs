@@ -30,6 +30,10 @@ public class PlayerManager : MonoBehaviour
 
     public static float damageMultiplier;
 
+    public AudioClip sheildHit;
+    public AudioClip healthHit;
+    public AudioClip sheildBreak;
+
     public static bool gameOver;
 
     // Start is called before the first frame update
@@ -66,8 +70,16 @@ public class PlayerManager : MonoBehaviour
         float excessDamage = damage - playerCurrentBlock;
         if (excessDamage > 0)
         {
+            if (playerCurrentBlock == 0)
+            {
+                //play health hit sfx
+            }
+            else
+            {
+                //play block broken hit sfx
+            }
             playerCurrentBlock = 0;
-            playerCurrentHealth -= excessDamage; 
+            playerCurrentHealth -= excessDamage;
             float hpPercentage = playerCurrentHealth / playerMaxHealth;
             healthUi.UpdateHealth(hpPercentage, playerCurrentHealth, playerMaxHealth);
             healthUi.UpdateBlock(playerCurrentBlock);
@@ -81,11 +93,12 @@ public class PlayerManager : MonoBehaviour
         }
         else
         {
+            //play block hit sfx
             playerCurrentBlock -= damage;
             healthUi.UpdateBlock(playerCurrentBlock);
             menuHealthUi.UpdateBlock(playerCurrentBlock);
         }
-        
+
         if (playerCurrentHealth <= 0)
         {
             gameOver = true;
