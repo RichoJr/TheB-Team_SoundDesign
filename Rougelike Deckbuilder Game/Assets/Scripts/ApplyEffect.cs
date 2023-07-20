@@ -105,7 +105,7 @@ public class ApplyEffect : MonoBehaviour
                 else
                 {
                     HealthManager health = target.GetComponent<HealthManager>();
-                    health.UnitDamaged(effectPotency);
+                    health.UnitDamaged(effectPotency, false);
                 }
                 break;
             case 10:

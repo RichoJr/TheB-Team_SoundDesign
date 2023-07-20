@@ -28,6 +28,7 @@ public class HealthManager : MonoBehaviour
     public AudioClip sheildHit;
     public AudioClip healthHit;
     public AudioClip sheildBreak;
+    public AudioClip poisonDamage;
     public AudioClip deathSound;
     // Start is called before the first frame update
     void Start()
@@ -58,14 +59,19 @@ public class HealthManager : MonoBehaviour
         healthUi.UpdateHealth(1, currentHealth, maxHealth);
     }
     // Update is called once per frame
-    public void UnitDamaged(int damage)
+    public void UnitDamaged(int damage, bool poisonDmg)
     {
         float excessDamage = damage - currentBlock;
         if (excessDamage > 0)
         {
-            if (currentBlock == 0)
+            if (currentBlock == 0 && poisonDmg == false)
             {
                 audioSource.clip = healthHit;
+                audioSource.Play();
+            }
+            else if(poisonDmg == true)
+            {
+                audioSource.clip = poisonDamage;
                 audioSource.Play();
             }
             else

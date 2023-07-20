@@ -219,7 +219,7 @@ public class ThisCard : MonoBehaviour
                     applyEffect.ActivateEffect(target, priorEffect, priorPotency);
                     for (int i = 0; i < hits; i++)
                     {
-                        targetHealthManager.UnitDamaged((int)(damage * PlayerManager.damageMultiplier + 0.5f));
+                        targetHealthManager.UnitDamaged((int)(damage * PlayerManager.damageMultiplier + 0.5f), false);
                         // play hit sound
                         StartCoroutine(SingleHitAnimation(target));
                         yield return new WaitForSeconds(0.4f);
@@ -239,7 +239,7 @@ public class ThisCard : MonoBehaviour
                         foreach (GameObject enemy in enemies)
                         {
                             HealthManager healthManager = enemy.GetComponent<HealthManager>();
-                            healthManager.UnitDamaged((int)(damage * PlayerManager.damageMultiplier + 0.5f));
+                            healthManager.UnitDamaged((int)(damage * PlayerManager.damageMultiplier + 0.5f), false);
                             applyEffect.ActivateEffect(enemy, postEffect, postPotency);
                         }
                         yield return new WaitForSeconds(0.4f);

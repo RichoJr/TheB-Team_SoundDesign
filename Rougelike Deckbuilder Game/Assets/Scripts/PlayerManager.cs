@@ -31,9 +31,10 @@ public class PlayerManager : MonoBehaviour
     public static float damageMultiplier;
 
     public AudioSource audioSource;
-    public AudioClip sheildHit;
+    public AudioClip shieldHit;
     public AudioClip healthHit;
-    public AudioClip sheildBreak;
+    public AudioClip shieldBreak;
+    public AudioClip deathSound;
 
     public static bool gameOver;
 
@@ -69,44 +70,51 @@ public class PlayerManager : MonoBehaviour
     // Update is called once per frame
     public void PlayerDamaged(int damage, GameObject source)
     {
-        float excessDamage = damage - playerCurrentBlock;
-        if (excessDamage > 0)
+        if(damage > 0)
         {
-            if (playerCurrentBlock == 0)
+            float excessDamage = damage - playerCurrentBlock;
+            if (excessDamage > 0)
             {
-                //play health hit sfx
+                if (playerCurrentBlock == 0)
+                {
+                    audioSource.clip = healthHit;
+                    audioSource.Play();
+                }
+                else
+                {
+                    audioSource.clip = shieldBreak;
+                    audioSource.Play();
+                }
+                playerCurrentBlock = 0;
+                playerCurrentHealth -= excessDamage;
+                float hpPercentage = playerCurrentHealth / playerMaxHealth;
+                healthUi.UpdateHealth(hpPercentage, playerCurrentHealth, playerMaxHealth);
+                healthUi.UpdateBlock(playerCurrentBlock);
+                menuHealthUi.UpdateHealth(hpPercentage, playerCurrentHealth, playerMaxHealth);
+                menuHealthUi.UpdateBlock(playerCurrentBlock);
+                if (PlayerHealthDamage != null)
+                {
+                    PlayerHealthDamage(player.gameObject, source);
+                }
+
             }
             else
             {
-                //play block broken hit sfx
+                audioSource.clip = shieldHit;
+                audioSource.Play();
+                playerCurrentBlock -= damage;
+                healthUi.UpdateBlock(playerCurrentBlock);
+                menuHealthUi.UpdateBlock(playerCurrentBlock);
             }
-            playerCurrentBlock = 0;
-            playerCurrentHealth -= excessDamage;
-            float hpPercentage = playerCurrentHealth / playerMaxHealth;
-            healthUi.UpdateHealth(hpPercentage, playerCurrentHealth, playerMaxHealth);
-            healthUi.UpdateBlock(playerCurrentBlock);
-            menuHealthUi.UpdateHealth(hpPercentage, playerCurrentHealth, playerMaxHealth);
-            menuHealthUi.UpdateBlock(playerCurrentBlock);
-            if (PlayerHealthDamage != null)
+
+            if (playerCurrentHealth <= 0)
             {
-                PlayerHealthDamage(player.gameObject, source);
+                audioSource.clip = deathSound;
+                audioSource.Play();
+                gameOver = true;
+                DeathCanvas.SetActive(true);
             }
-
         }
-        else
-        {
-            //play block hit sfx
-            playerCurrentBlock -= damage;
-            healthUi.UpdateBlock(playerCurrentBlock);
-            menuHealthUi.UpdateBlock(playerCurrentBlock);
-        }
-
-        if (playerCurrentHealth <= 0)
-        {
-            gameOver = true;
-            DeathCanvas.SetActive(true);
-        }
-
     }
 
     public void PlayerBlocks(float Block)

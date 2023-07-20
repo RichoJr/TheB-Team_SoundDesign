@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 6086432556000376984, guid: 05828b4935d75f343b8eebd2473bcca8, type: 3}
       propertyPath: healthHit
       value: 
-      objectReference: {fileID: 8300000, guid: 363dc3b66c317f749b8d30e71b9a7c32, type: 3}
+      objectReference: {fileID: 8300000, guid: 7eff6f55d2491554a842c03c03d52fe6, type: 3}
     - target: {fileID: 6086432556191892212, guid: 05828b4935d75f343b8eebd2473bcca8, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

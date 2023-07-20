@@ -1909,7 +1909,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -8.511688}
+  m_AnchoredPosition: {x: 0, y: -8.511719}
   m_SizeDelta: {x: -80.5529, y: -170.9293}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &131122437
@@ -13910,9 +13910,10 @@ MonoBehaviour:
   menuFill: {fileID: 235634944}
   menuPoisonFill: {fileID: 266677234}
   audioSource: {fileID: 0}
-  sheildHit: {fileID: 0}
-  healthHit: {fileID: 0}
-  sheildBreak: {fileID: 0}
+  shieldHit: {fileID: 8300000, guid: aef9bd12928cdb249acc63a172f426e2, type: 3}
+  healthHit: {fileID: 8300000, guid: 5404e6937a2489245bc130c9742f561b, type: 3}
+  shieldBreak: {fileID: 8300000, guid: d0a575018fcedb24c928f7c43fa9cf77, type: 3}
+  deathSound: {fileID: 8300000, guid: 16fc2f9fb96ba7d438263ed16adc2212, type: 3}
 --- !u!4 &1469608833
 Transform:
   m_ObjectHideFlags: 0

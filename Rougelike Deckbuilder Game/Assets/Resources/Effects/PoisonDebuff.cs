@@ -60,7 +60,7 @@ public class PoisonDebuff : MonoBehaviour
         else
         {
             HealthManager healthManager = attached.GetComponent<HealthManager>();
-            healthManager.UnitDamaged(stacks);
+            healthManager.UnitDamaged(stacks, true);
         }
         stacks -= 1;
         if (stacks <= 0)
