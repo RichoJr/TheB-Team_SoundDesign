@@ -35,6 +35,7 @@ public class PlayerManager : MonoBehaviour
     public AudioClip healthHit;
     public AudioClip shieldBreak;
     public AudioClip deathSound;
+    public AudioClip poisonDamage;
 
     public static bool gameOver;
 
@@ -75,10 +76,16 @@ public class PlayerManager : MonoBehaviour
             float excessDamage = damage - playerCurrentBlock;
             if (excessDamage > 0)
             {
-                if (playerCurrentBlock == 0)
+                if (playerCurrentBlock == 0 && source != this.gameObject)
                 {
                     audioSource.clip = healthHit;
                     audioSource.Play();
+                }
+                else if (source == this.gameObject)
+                {
+                    audioSource.clip = poisonDamage;
+                    audioSource.Play();
+                    source = null;
                 }
                 else
                 {
@@ -100,8 +107,17 @@ public class PlayerManager : MonoBehaviour
             }
             else
             {
-                audioSource.clip = shieldHit;
-                audioSource.Play();
+                if (source == this.gameObject)
+                {
+                    audioSource.clip = poisonDamage;
+                    audioSource.Play();
+                    source = null;
+                }
+                else
+                {
+                    audioSource.clip = shieldHit;
+                    audioSource.Play();
+                }
                 playerCurrentBlock -= damage;
                 healthUi.UpdateBlock(playerCurrentBlock);
                 menuHealthUi.UpdateBlock(playerCurrentBlock);

@@ -836,6 +836,10 @@ PrefabInstance:
       propertyPath: innate
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1532355395250708229, guid: 05828b4935d75f343b8eebd2473bcca8, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2194222772515668452, guid: 05828b4935d75f343b8eebd2473bcca8, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
@@ -851,6 +855,10 @@ PrefabInstance:
     - target: {fileID: 2968655778672463633, guid: 05828b4935d75f343b8eebd2473bcca8, type: 3}
       propertyPath: m_AnchorMin.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4081460053076544715, guid: 05828b4935d75f343b8eebd2473bcca8, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6086432556000376982, guid: 05828b4935d75f343b8eebd2473bcca8, type: 3}
       propertyPath: m_Color.b
@@ -868,6 +876,22 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 32
       objectReference: {fileID: 0}
+    - target: {fileID: 6086432556000376984, guid: 05828b4935d75f343b8eebd2473bcca8, type: 3}
+      propertyPath: sheildHit
+      value: 
+      objectReference: {fileID: 8300000, guid: aef9bd12928cdb249acc63a172f426e2, type: 3}
+    - target: {fileID: 6086432556000376984, guid: 05828b4935d75f343b8eebd2473bcca8, type: 3}
+      propertyPath: deathSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 4a41f8ab509ebab419337263af042267, type: 3}
+    - target: {fileID: 6086432556000376984, guid: 05828b4935d75f343b8eebd2473bcca8, type: 3}
+      propertyPath: sheildBreak
+      value: 
+      objectReference: {fileID: 8300000, guid: d0a575018fcedb24c928f7c43fa9cf77, type: 3}
+    - target: {fileID: 6086432556000376984, guid: 05828b4935d75f343b8eebd2473bcca8, type: 3}
+      propertyPath: poisonDamage
+      value: 
+      objectReference: {fileID: 8300000, guid: 82557f466d8b42c44aa38f16f7252984, type: 3}
     - target: {fileID: 6086432556000376986, guid: 05828b4935d75f343b8eebd2473bcca8, type: 3}
       propertyPath: thisEnemyAttacks.Array.size
       value: 3

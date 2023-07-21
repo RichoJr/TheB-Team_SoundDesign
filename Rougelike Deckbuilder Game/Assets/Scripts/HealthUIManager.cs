@@ -21,11 +21,15 @@ public class HealthUIManager : MonoBehaviour
         blockText.enabled = false;
     }
 
-   
+
     public void UpdateHealth(float value, float currentHealth, float maxHealth)
     {
         healthBarSlider.value = value;
         healthText.text = currentHealth + "/" + maxHealth;
+        if (currentHealth < 0)
+        {
+            healthText.text = 0 + "/" + maxHealth;
+        }
     }
     public void UpdatePoison(float value)
     {

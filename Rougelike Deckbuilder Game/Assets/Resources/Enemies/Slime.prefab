@@ -10,7 +10,23 @@ PrefabInstance:
     - target: {fileID: 6086432556000376984, guid: 05828b4935d75f343b8eebd2473bcca8, type: 3}
       propertyPath: healthHit
       value: 
-      objectReference: {fileID: 8300000, guid: 7eff6f55d2491554a842c03c03d52fe6, type: 3}
+      objectReference: {fileID: 0}
+    - target: {fileID: 6086432556000376984, guid: 05828b4935d75f343b8eebd2473bcca8, type: 3}
+      propertyPath: sheildHit
+      value: 
+      objectReference: {fileID: 8300000, guid: aef9bd12928cdb249acc63a172f426e2, type: 3}
+    - target: {fileID: 6086432556000376984, guid: 05828b4935d75f343b8eebd2473bcca8, type: 3}
+      propertyPath: deathSound
+      value: 
+      objectReference: {fileID: 8300000, guid: e8345ca9366297a4590f9365b5856513, type: 3}
+    - target: {fileID: 6086432556000376984, guid: 05828b4935d75f343b8eebd2473bcca8, type: 3}
+      propertyPath: sheildBreak
+      value: 
+      objectReference: {fileID: 8300000, guid: d0a575018fcedb24c928f7c43fa9cf77, type: 3}
+    - target: {fileID: 6086432556000376984, guid: 05828b4935d75f343b8eebd2473bcca8, type: 3}
+      propertyPath: poisonDamage
+      value: 
+      objectReference: {fileID: 8300000, guid: 82557f466d8b42c44aa38f16f7252984, type: 3}
     - target: {fileID: 6086432556191892212, guid: 05828b4935d75f343b8eebd2473bcca8, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

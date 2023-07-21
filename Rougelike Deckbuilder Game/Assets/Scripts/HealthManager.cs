@@ -25,9 +25,9 @@ public class HealthManager : MonoBehaviour
     public float damageModifier;
 
     public AudioSource audioSource;
-    public AudioClip sheildHit;
+    public AudioClip shieldHit;
     public AudioClip healthHit;
-    public AudioClip sheildBreak;
+    public AudioClip shieldBreak;
     public AudioClip poisonDamage;
     public AudioClip deathSound;
     // Start is called before the first frame update
@@ -69,14 +69,15 @@ public class HealthManager : MonoBehaviour
                 audioSource.clip = healthHit;
                 audioSource.Play();
             }
-            else if(poisonDmg == true)
+            else if (poisonDmg == true)
             {
                 audioSource.clip = poisonDamage;
                 audioSource.Play();
             }
             else
             {
-                //play block broken hit sfx
+                audioSource.clip = shieldBreak;
+                audioSource.Play();
             }
             currentBlock = 0;
             currentHealth -= excessDamage;
@@ -92,21 +93,24 @@ public class HealthManager : MonoBehaviour
             }
             if (currentHealth <= 0 && enemyAlive == true)
             {
-                unit.SetActive(false);
-                if (EnemyKilled != null)
-                {
-                    //play death sfx
-                    Debug.Log("Enemy Killed");
-                    enemyAlive = false;
-                    EnemyKilled();
-                }
-                //Trigger on kill effects
+                audioSource.clip = deathSound;
+                audioSource.Play();
+                StartCoroutine(DeathSounds());
             }
         }
         else
         {
             currentBlock -= damage;
-            //play blocked hit sfx
+            if (poisonDmg == true)
+            {
+                audioSource.clip = poisonDamage;
+                audioSource.Play();
+            }
+            else
+            {
+                audioSource.clip = shieldHit;
+                audioSource.Play();
+            }
             healthUi.UpdateBlock(currentBlock);
         }
 
@@ -144,6 +148,17 @@ public class HealthManager : MonoBehaviour
         else
         {
             poisonHealth.SetActive(false);
+        }
+    }
+    IEnumerator DeathSounds()
+    {
+        yield return new WaitForSeconds(0.5f);
+        unit.SetActive(false);
+        if (EnemyKilled != null)
+        {
+            Debug.Log("Enemy Killed");
+            enemyAlive = false;
+            EnemyKilled();
         }
     }
 }

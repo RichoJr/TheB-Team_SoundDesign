@@ -47,6 +47,22 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 26
       objectReference: {fileID: 0}
+    - target: {fileID: 6086432556000376984, guid: 05828b4935d75f343b8eebd2473bcca8, type: 3}
+      propertyPath: sheildHit
+      value: 
+      objectReference: {fileID: 8300000, guid: aef9bd12928cdb249acc63a172f426e2, type: 3}
+    - target: {fileID: 6086432556000376984, guid: 05828b4935d75f343b8eebd2473bcca8, type: 3}
+      propertyPath: deathSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 70321200842143544b1a1b758c3c8ab1, type: 3}
+    - target: {fileID: 6086432556000376984, guid: 05828b4935d75f343b8eebd2473bcca8, type: 3}
+      propertyPath: sheildBreak
+      value: 
+      objectReference: {fileID: 8300000, guid: d0a575018fcedb24c928f7c43fa9cf77, type: 3}
+    - target: {fileID: 6086432556000376984, guid: 05828b4935d75f343b8eebd2473bcca8, type: 3}
+      propertyPath: poisonDamage
+      value: 
+      objectReference: {fileID: 8300000, guid: 82557f466d8b42c44aa38f16f7252984, type: 3}
     - target: {fileID: 6086432556000376986, guid: 05828b4935d75f343b8eebd2473bcca8, type: 3}
       propertyPath: enemy
       value: 
