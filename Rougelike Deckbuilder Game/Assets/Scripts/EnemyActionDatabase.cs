@@ -11,7 +11,7 @@ public class EnemyActionDatabase : MonoBehaviour
         attacklist.Add(new EnemyAction(0, "None", 0, 0, 0, 0, 0, 0, 0, Resources.Load<Sprite>("Circle"), Resources.Load<AudioClip>("Sounds/Fart")));
         attacklist.Add(new EnemyAction(1, "Bash", 5, 0, 1, 0, 0, 0, 0, Resources.Load<Sprite>("Circle"), Resources.Load<AudioClip>("Sounds/Fart")));
         attacklist.Add(new EnemyAction(2, "Slime Sling", 3, 0, 1, 0, 0, 3, 1, Resources.Load<Sprite>("Circle"), Resources.Load<AudioClip>("Sounds/liquid_attack")));
-        attacklist.Add(new EnemyAction(3, "Stab Stab", 4, 0, 2, 0, 0, 0, 0, Resources.Load<Sprite>("Circle"), Resources.Load<AudioClip>("Sounds/Fart")));
+        attacklist.Add(new EnemyAction(3, "Stab Stab", 4, 0, 2, 0, 0, 0, 0, Resources.Load<Sprite>("Circle"), Resources.Load<AudioClip>("Sounds/enemy_stab")));
         attacklist.Add(new EnemyAction(4, "Scheming", 0, 0, 0, 4, 3, 0, 0, Resources.Load<Sprite>("Circle"), Resources.Load<AudioClip>("Sounds/Fart")));
         attacklist.Add(new EnemyAction(5, "Sleaze Ball", 7, 0, 1, 0, 0, 6, 2, Resources.Load<Sprite>("Circle"), Resources.Load<AudioClip>("Sounds/liquid_attack")));
         attacklist.Add(new EnemyAction(6, "Awful Joke", 0, 0, 1, 0, 0, 7, 1, Resources.Load<Sprite>("Circle"), Resources.Load<AudioClip>("Sounds/Fart")));
