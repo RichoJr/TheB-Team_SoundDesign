@@ -6884,7 +6884,7 @@ AudioSource:
   m_GameObject: {fileID: 620658927}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -8972770265527845272, guid: 2140257d830b1e14bbc964879937c844, type: 2}
+  OutputAudioMixerGroup: {fileID: -1359104846752032041, guid: 2140257d830b1e14bbc964879937c844, type: 2}
   m_audioClip: {fileID: 8300000, guid: 37d618228fc854942924f0c50dd6912e, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -14054,7 +14054,7 @@ MonoBehaviour:
   healthHit: {fileID: 8300000, guid: 5404e6937a2489245bc130c9742f561b, type: 3}
   shieldBreak: {fileID: 8300000, guid: d0a575018fcedb24c928f7c43fa9cf77, type: 3}
   deathSound: {fileID: 8300000, guid: 16fc2f9fb96ba7d438263ed16adc2212, type: 3}
-  poisonDamage: {fileID: 0}
+  poisonDamage: {fileID: 8300000, guid: 82557f466d8b42c44aa38f16f7252984, type: 3}
 --- !u!4 &1469608833
 Transform:
   m_ObjectHideFlags: 0

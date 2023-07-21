@@ -881,11 +881,19 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: aef9bd12928cdb249acc63a172f426e2, type: 3}
     - target: {fileID: 6086432556000376984, guid: 05828b4935d75f343b8eebd2473bcca8, type: 3}
+      propertyPath: shieldHit
+      value: 
+      objectReference: {fileID: 8300000, guid: aef9bd12928cdb249acc63a172f426e2, type: 3}
+    - target: {fileID: 6086432556000376984, guid: 05828b4935d75f343b8eebd2473bcca8, type: 3}
       propertyPath: deathSound
       value: 
       objectReference: {fileID: 8300000, guid: 4a41f8ab509ebab419337263af042267, type: 3}
     - target: {fileID: 6086432556000376984, guid: 05828b4935d75f343b8eebd2473bcca8, type: 3}
       propertyPath: sheildBreak
+      value: 
+      objectReference: {fileID: 8300000, guid: d0a575018fcedb24c928f7c43fa9cf77, type: 3}
+    - target: {fileID: 6086432556000376984, guid: 05828b4935d75f343b8eebd2473bcca8, type: 3}
+      propertyPath: shieldBreak
       value: 
       objectReference: {fileID: 8300000, guid: d0a575018fcedb24c928f7c43fa9cf77, type: 3}
     - target: {fileID: 6086432556000376984, guid: 05828b4935d75f343b8eebd2473bcca8, type: 3}
