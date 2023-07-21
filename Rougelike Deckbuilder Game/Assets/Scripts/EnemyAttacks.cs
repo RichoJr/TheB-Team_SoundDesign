@@ -36,6 +36,7 @@ public class EnemyAttacks : MonoBehaviour
     public Image thatImage;
 
     public AudioClip attackSound;
+    public AudioSource attackSoundSource;
 
     public GameObject enemy;
     public GameObject player;
@@ -63,6 +64,7 @@ public class EnemyAttacks : MonoBehaviour
         specialAttackConditions = FindObjectOfType<SpecialAttackConditions>();
         player = GameObject.FindGameObjectWithTag("Player");
         enemy = this.gameObject;
+        attackSoundSource = GameObject.Find("Enemy Attack Sound").GetComponent<AudioSource>();
         foreach (int attack in thisEnemyAttacks)
         {
             thisEnemyActions.Add(EnemyActionDatabase.attacklist[attack]);
@@ -152,6 +154,8 @@ public class EnemyAttacks : MonoBehaviour
             yield return new WaitForSeconds(0.45f);
             healthManager.BlockGained(block);
             // sound effect
+            attackSoundSource.clip = attackSound;
+            attackSoundSource.Play();
             applyEffect.ActivateEffect(enemy, buffEffect, buffPotency);
             thatImage.gameObject.SetActive(false);
             yield return new WaitForSeconds(0.59f);
@@ -163,6 +167,8 @@ public class EnemyAttacks : MonoBehaviour
             yield return new WaitForSeconds(0.4f);
             playerManager.PlayerDamaged((int)(damage * healthManager.damageModifier + 0.5f), enemy);
             // sound effect
+            attackSoundSource.clip = attackSound;
+            attackSoundSource.Play();
             StartCoroutine(HitAnimation());
             if (hits > 1)
             {
@@ -174,6 +180,8 @@ public class EnemyAttacks : MonoBehaviour
                     yield return new WaitForSeconds(0.15f);
                     StartCoroutine(HitAnimation());
                     // sound effect
+                    attackSoundSource.clip = attackSound;
+                    attackSoundSource.Play();
                     playerManager.PlayerDamaged((int)(damage * healthManager.damageModifier + 0.5f), enemy);
                 }
             }
