@@ -93,8 +93,6 @@ public class HealthManager : MonoBehaviour
             }
             if (currentHealth <= 0 && enemyAlive == true)
             {
-                audioSource.clip = deathSound;
-                audioSource.Play();
                 StartCoroutine(DeathSounds());
             }
         }
@@ -152,6 +150,9 @@ public class HealthManager : MonoBehaviour
     }
     IEnumerator DeathSounds()
     {
+        yield return new WaitForSeconds(0.3f);
+        audioSource.clip = deathSound;
+        audioSource.Play();
         yield return new WaitForSeconds(0.5f);
         unit.SetActive(false);
         if (EnemyKilled != null)

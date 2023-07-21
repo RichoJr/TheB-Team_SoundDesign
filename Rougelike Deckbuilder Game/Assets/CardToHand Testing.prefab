@@ -1045,6 +1045,7 @@ MonoBehaviour:
   banishPile: {fileID: 0}
   inBanishPile: 0
   inDiscardPile: 0
+  attackAudioSource: {fileID: 0}
 --- !u!114 &964400695115950484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1293,7 +1294,7 @@ AudioSource:
   m_GameObject: {fileID: 8000610689717879242}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -1359104846752032041, guid: 2140257d830b1e14bbc964879937c844, type: 2}
   m_audioClip: {fileID: 8300000, guid: 5d1287636dbaf6b42bcd3385c107d2ff, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1

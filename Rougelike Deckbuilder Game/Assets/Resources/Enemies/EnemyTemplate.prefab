@@ -131,7 +131,7 @@ AudioSource:
   m_GameObject: {fileID: 2363080354569851267}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 6515651823784038619, guid: 2140257d830b1e14bbc964879937c844, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -259,7 +259,7 @@ AudioSource:
   m_GameObject: {fileID: 2919605801779418760}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -727479256588085874, guid: 2140257d830b1e14bbc964879937c844, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -710,9 +710,9 @@ MonoBehaviour:
   fill: {fileID: 6086432556674637458}
   damageModifier: 0
   audioSource: {fileID: 0}
-  sheildHit: {fileID: 0}
+  shieldHit: {fileID: 0}
   healthHit: {fileID: 0}
-  sheildBreak: {fileID: 0}
+  shieldBreak: {fileID: 0}
   poisonDamage: {fileID: 0}
   deathSound: {fileID: 0}
 --- !u!114 &6086432556000376987
@@ -764,6 +764,7 @@ MonoBehaviour:
   thisSprite: {fileID: 0}
   thatImage: {fileID: 6086432557195755247}
   attackSound: {fileID: 0}
+  attackSoundSource: {fileID: 0}
   enemy: {fileID: 6086432556000376990}
   player: {fileID: 0}
   enemyAnimator: {fileID: 0}
